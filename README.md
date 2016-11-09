@@ -2,6 +2,15 @@
 
 Collect samples for API
 
+## TODO List
+* Frequency check (is it really needed or sample rate would be sufficient?)
+* Rails integration:
+  * Persistent store (fetch data from redis, save to DB)
+  * `ApiSampler::Store::Model` (save samples directly to DB)
+  * Samples' presentation 
+  * Generators
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
