@@ -9,7 +9,8 @@ module ApiSampler
 
     public
 
-    def initialize(configuration: ApiSampler.configuration, random_generator: Random)
+    def initialize(configuration: ApiSampler.configuration,
+                   random_generator: Random)
       self.configuration = configuration
       self.random_generator = random_generator
     end

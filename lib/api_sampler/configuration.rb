@@ -18,8 +18,9 @@ module ApiSampler
     public
 
     attr_accessor :path_matcher, :blacklist, :logger, :verbose,
-      :store, :custom_store, :redis_config,
-      :sample_rate_percent, :sample_limit_frequency, :sample_limit_period
+                  :store, :custom_store, :redis_config,
+                  :sample_rate_percent, :sample_limit_frequency,
+                  :sample_limit_period
 
     attr_reader :taggers, :store_instance
 
@@ -78,7 +79,7 @@ module ApiSampler
 
     # NOTE: move to Store module?
     def assert_valid_store
-      raise Error, "invalid store, available store are: #{ Store::AVAILABLE_STORES.join(', ') }" unless Store::AVAILABLE_STORES.include?(store)
+      raise Error, "invalid store, available store are: #{Store::AVAILABLE_STORES.join(', ')}" unless Store::AVAILABLE_STORES.include?(store)
       raise Error, 'provide `custom_store` that respond to `call`' if store == :custom && !custom_store.respond_to?(:call)
       raise Error, 'provide `logger` option for log store' if store == :log && logger.nil?
       raise Error, 'provide `redis_config` for redis store' if store == :redis && (redis_config.nil? || redis_config.empty?)

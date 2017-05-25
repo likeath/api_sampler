@@ -44,7 +44,7 @@ describe ApiSampler do
 
       store = ApiSampler.store
 
-      expect(store.endpoints).to eq(
+      expect(store.endpoints.sort).to eq(
         ['/api/logs', '/api/users']
       )
 

@@ -1,17 +1,31 @@
 # frozen_string_literal: true
 module ApiSampler
   class Sample
+    FIELDS = %i(
+      time
+      request_method
+      request_path
+      request_query_string
+      request_body
+      response_code
+      response_body
+      tag_names
+      duration
+    ).freeze
+
     private
 
     attr_accessor :start_at, :end_at, :tags,
-      :request_path, :request_body, :request_method, :request_query_string,
-      :response_code, :response_body
+                  :request_path, :request_body,
+                  :request_method, :request_query_string,
+                  :response_code, :response_body
 
     public
 
-    attr_reader :request_path, :request_method, :request_query_string, :request_body,
-      :response_body, :response_code,
-      :tags
+    attr_reader :request_path, :request_method,
+                :request_query_string, :request_body,
+                :response_body, :response_code,
+                :tags
 
     def initialize
       self.tags = []
@@ -63,17 +77,7 @@ module ApiSampler
     end
 
     def to_hash
-      %i(
-        time
-        request_method
-        request_path
-        request_query_string
-        request_body
-        response_code
-        response_body
-        tag_names
-        duration
-      ).map do |field|
+      FIELDS.map do |field|
         [field, public_send(field)]
       end.to_h
     end

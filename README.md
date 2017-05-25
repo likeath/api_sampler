@@ -1,4 +1,4 @@
-# ApiSampler
+# ApiSampler [![Build Status](https://travis-ci.org/likeath/api_sampler.svg?branch=master)](https://travis-ci.org/likeath/api_sampler) [![Code Climate](https://codeclimate.com/github/likeath/api_sampler.png)](https://codeclimate.com/github/likeath/api_sampler)
 
 Collect samples for API
 
@@ -7,9 +7,8 @@ Collect samples for API
 * Rails integration:
   * Persistent store (fetch data from redis, save to DB)
   * `ApiSampler::Store::Model` (save samples directly to DB)
-  * Samples' presentation 
+  * Samples' presentation
   * Generators
-
 
 ## Installation
 
