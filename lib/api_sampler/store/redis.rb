@@ -26,7 +26,7 @@ module ApiSampler
       end
 
       def fetch_samples
-        endpoints.flat_map do |endpoint|
+        endpoints.sort.flat_map do |endpoint|
           redis.zrevrange(
             samples_storage(endpoint),
             0,

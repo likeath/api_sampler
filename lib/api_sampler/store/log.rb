@@ -18,8 +18,7 @@ module ApiSampler
         )
       end
 
-      def clear
-      end
+      def clear; end
     end
   end
 end
