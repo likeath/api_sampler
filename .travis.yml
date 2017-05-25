@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.2.2
+cache: bundler
+services:
+  - redis
+env:
+  global:
+    - REDIS_URL='redis://localhost'
+script:
+ - bundle exec rspec
