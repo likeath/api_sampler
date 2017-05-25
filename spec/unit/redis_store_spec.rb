@@ -45,9 +45,9 @@ describe ApiSampler::Store::Redis do
       end
     end
     describe '#fetch_samples' do
-      it 'returns all samples in correct order – from newest to older' do
+      it 'returns all samples in correct order – from newest to older grouped by endpoints' do
         expect(store.fetch_samples).to eq(
-          [sample_users_2, sample_users, sample_logs, sample_logs_2]
+          [sample_logs, sample_logs_2, sample_users_2, sample_users]
             .map { |sample| ApiSampler::Utils.to_json(sample.to_hash) }
         )
       end
